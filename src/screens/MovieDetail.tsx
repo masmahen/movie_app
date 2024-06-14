@@ -1,17 +1,28 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-export default function MovieDetail(): JSX.Element {
-  const navigation = useNavigation<any>();
-
+const MovieDetail = ({ navigation }: any) => {
   return (
-    <View>
-      <Text>Movie Detail</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>Movie Detail Screen</Text>
       <Button
-        title="Go to Home"
+        title="Go back to Home"
         onPress={() => navigation.navigate('Home')}
       />
     </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    marginBottom: 20,
+    fontSize: 24,
+  },
+});
+
+export default MovieDetail;

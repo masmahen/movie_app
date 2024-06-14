@@ -1,19 +1,28 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-// import HomeStackNavigation from '../navigations/HomeStackNavigation';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-export default function Home(): JSX.Element {
-  const navigation = useNavigation<any>();
-
+const Home = ({ navigation }: any) => {
   return (
-    <View>
-      <Text>Home</Text>
-      {/* <HomeStackNavigation /> */}
+    <View style={styles.container}>
+      <Text style={styles.text}>Home Screen</Text>
       <Button
         title="Go to Movie Detail"
         onPress={() => navigation.navigate('MovieDetail')}
       />
     </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    marginBottom: 20,
+    fontSize: 24,
+  },
+});
+
+export default Home;
