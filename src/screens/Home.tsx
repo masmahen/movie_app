@@ -30,13 +30,13 @@ const Home = (): JSX.Element => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {movieLists.map((movieList) => (
-          <MovieList
-            title={movieList.title}
-            path={movieList.path}
-            coverType={movieList.coverType}
-            key={movieList.title}
-          />
+       {movieLists.map((movieList) => (
+        <MovieList
+          title={movieList.title}
+          path={movieList.path}
+          coverType={movieList.coverType}
+          key={movieList.title}
+        />
         ))}
         <StatusBar translucent={false} />
       </View>

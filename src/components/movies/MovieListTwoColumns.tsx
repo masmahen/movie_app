@@ -10,12 +10,12 @@ const coverImageSize = {
     height: 160,
   },
   poster: {
-    width: 100,
-    height: 160,
+    width: 160,
+    height: 240,
   },
 }
 
-const MovieList = ({ title, path, coverType, movies }: MovieListProps): JSX.Element => {
+const MovieListTwoColumns = ({ title, path, coverType, movies }: MovieListProps): JSX.Element => {
   const [movieList, setMovieList] = useState<Movie[]>(movies || [])
 
   useEffect(() => {
@@ -51,12 +51,9 @@ const MovieList = ({ title, path, coverType, movies }: MovieListProps): JSX.Elem
         <Text style={styles.title}>{title}</Text>
       </View>
       <FlatList
-        style={{
-          ...styles.movieList,
-          maxHeight: coverImageSize[coverType].height,
-        }}
-        showsHorizontalScrollIndicator={false}
-        horizontal
+        style={styles.movieList}
+        numColumns={2}
+        columnWrapperStyle={styles.columnWrapper}
         data={movieList}
         renderItem={({ item }) => (
           <MovieItem
@@ -94,6 +91,10 @@ const styles = StyleSheet.create({
     paddingLeft: 4,
     marginTop: 8,
   },
+  columnWrapper: {
+    justifyContent: 'space-between',
+    paddingHorizontal: 8,
+  },
 })
 
-export default MovieList
+export default MovieListTwoColumns

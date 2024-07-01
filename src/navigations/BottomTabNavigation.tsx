@@ -1,46 +1,39 @@
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Feather } from '@expo/vector-icons'
-import Home from '../screens/Home'
-import Search from '../screens/Search'
-import Favorite from '../screens/Favorite'
-import HomeStackNavigation from './HomeStackNavigation'
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Feather } from '@expo/vector-icons';
+import HomeStackNavigation from './HomeStackNavigation';
+import SearchStackNavigation from './SearchStackParamList'; // Impor SearchStackNavigation
+import FavoriteStackNavigation from './FavoriteStackNavigation';
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = (): JSX.Element => (
   <Tab.Navigator>
     <Tab.Screen
       name="HomeStack"
-      component={HomeStackNavigation} // Gunakan HomeStackNavigation
+      component={HomeStackNavigation}
       options={{
-        tabBarIcon: ({ color }) => (
-          <Feather name="home" size={28} color={color} />
-        ),
+        tabBarIcon: ({ color }) => <Feather name="home" size={28} color={color} />,
         headerShown: false,
       }}
     />
     <Tab.Screen
-      name="Search"
-      component={Search}
+      name="SearchStack" // Ganti nama menjadi "SearchStack"
+      component={SearchStackNavigation} // Gunakan SearchStackNavigation
       options={{
-        tabBarIcon: ({ color }) => (
-          <Feather name="search" size={28} color={color} />
-        ),
+        tabBarIcon: ({ color }) => <Feather name="search" size={28} color={color} />,
         headerShown: false,
       }}
     />
     <Tab.Screen
-      name="Favorite"
-      component={Favorite}
+      name="FavoriteStack"
+      component={FavoriteStackNavigation}
       options={{
-        tabBarIcon: ({ color }) => (
-          <Feather name="heart" size={28} color={color} />
-        ),
+        tabBarIcon: ({ color }) => <Feather name="heart" size={28} color={color} />,
         headerShown: false,
       }}
     />
   </Tab.Navigator>
-)
+);
 
-export default BottomTabNavigator
+export default BottomTabNavigator;
